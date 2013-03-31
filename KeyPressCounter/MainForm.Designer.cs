@@ -38,6 +38,7 @@
             this.labelKPMVal = new System.Windows.Forms.Label();
             this.labelDesc = new System.Windows.Forms.Label();
             this.UpdateDisplay = new System.Windows.Forms.Timer(this.components);
+            this.buttonAbout = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,13 +87,13 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(260, 100);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // labelKeypressesVal
             // 
             this.labelKeypressesVal.AutoSize = true;
-            this.labelKeypressesVal.Location = new System.Drawing.Point(103, 0);
+            this.labelKeypressesVal.Location = new System.Drawing.Point(133, 0);
             this.labelKeypressesVal.Name = "labelKeypressesVal";
             this.labelKeypressesVal.Size = new System.Drawing.Size(13, 13);
             this.labelKeypressesVal.TabIndex = 3;
@@ -101,7 +102,7 @@
             // labelTimeVal
             // 
             this.labelTimeVal.AutoSize = true;
-            this.labelTimeVal.Location = new System.Drawing.Point(103, 13);
+            this.labelTimeVal.Location = new System.Drawing.Point(133, 13);
             this.labelTimeVal.Name = "labelTimeVal";
             this.labelTimeVal.Size = new System.Drawing.Size(13, 13);
             this.labelTimeVal.TabIndex = 4;
@@ -111,7 +112,7 @@
             // 
             this.labelKPMVal.AutoSize = true;
             this.labelKPMVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKPMVal.Location = new System.Drawing.Point(103, 26);
+            this.labelKPMVal.Location = new System.Drawing.Point(133, 26);
             this.labelKPMVal.Name = "labelKPMVal";
             this.labelKPMVal.Size = new System.Drawing.Size(24, 25);
             this.labelKPMVal.TabIndex = 5;
@@ -132,13 +133,25 @@
             this.UpdateDisplay.Interval = 50;
             this.UpdateDisplay.Tick += new System.EventHandler(this.UpdateDisplay_Tick);
             // 
+            // buttonAbout
+            // 
+            this.buttonAbout.Location = new System.Drawing.Point(12, 169);
+            this.buttonAbout.Name = "buttonAbout";
+            this.buttonAbout.Size = new System.Drawing.Size(75, 23);
+            this.buttonAbout.TabIndex = 7;
+            this.buttonAbout.Text = "About";
+            this.buttonAbout.UseVisualStyleBackColor = true;
+            this.buttonAbout.Click += new System.EventHandler(this.buttonAbout_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 204);
+            this.Controls.Add(this.buttonAbout);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.labelDesc);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.Text = "KeyPressCounter";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -161,6 +174,7 @@
         private System.Windows.Forms.Label labelKeypressesVal;
         private System.Windows.Forms.Label labelDesc;
         private System.Windows.Forms.Timer UpdateDisplay;
+        private System.Windows.Forms.Button buttonAbout;
     }
 }
 

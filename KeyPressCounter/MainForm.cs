@@ -50,12 +50,15 @@ namespace KeyPressCounter
 
         private void StartCount()
         {
+            this.WindowState = FormWindowState.Minimized;
             TimeCounter.Restart();
             KeypressCounter = new Int32();
         }
 
         private void StopCount()
         {
+            this.WindowState = FormWindowState.Normal;
+            this.BringToFront();
             TimeCounter.Stop();
         }
 
@@ -72,6 +75,14 @@ namespace KeyPressCounter
             labelKeypressesVal.Text = KeypressCounter.ToString();
             labelTimeVal.Text = TimeCounter.Elapsed.ToString();
             labelKPMVal.Text = (KeypressCounter / TimeCounter.Elapsed.TotalMinutes).ToString();
+        }
+
+        private void buttonAbout_Click(object sender, EventArgs e)
+        {
+            using (AboutBox about = new AboutBox())
+            {
+                about.ShowDialog();
+            }
         }
     }
 }

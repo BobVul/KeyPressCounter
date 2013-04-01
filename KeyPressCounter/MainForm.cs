@@ -27,7 +27,7 @@ namespace KeyPressCounter
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            KeyboardHook.KeyDown += new KeyEventHandler(KeyboardHook_KeyDown);
+            KeyboardHook.KeyUp += new KeyEventHandler(KeyboardHook_KeyUp);
             KeyboardHook.CreateHook();
         }
 
@@ -36,7 +36,7 @@ namespace KeyPressCounter
             KeyboardHook.Dispose();
         }
 
-        void KeyboardHook_KeyDown(object sender, KeyEventArgs e)
+        void KeyboardHook_KeyUp(object sender, KeyEventArgs e)
         {
             if (options.HotkeysEnabled)
             {
@@ -117,9 +117,9 @@ namespace KeyPressCounter
             }
 
             if (options.HotkeysEnabled)
-                this.labelDesc.Visible = true;
+                this.labelHotkeys.Visible = true;
             else
-                this.labelDesc.Visible = false;
+                this.labelHotkeys.Visible = false;
         }
 
         private void buttonStart_Click(object sender, EventArgs e)

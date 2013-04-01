@@ -33,10 +33,10 @@
             this.labelTimeDesc = new System.Windows.Forms.Label();
             this.labelKPMDesc = new System.Windows.Forms.Label();
             this.tableLayoutPanelDisplay = new System.Windows.Forms.TableLayoutPanel();
-            this.labelKeypressesVal = new System.Windows.Forms.Label();
-            this.labelTimeVal = new System.Windows.Forms.Label();
             this.labelKPMVal = new System.Windows.Forms.Label();
-            this.labelDesc = new System.Windows.Forms.Label();
+            this.labelTimeVal = new System.Windows.Forms.Label();
+            this.labelKeypressesVal = new System.Windows.Forms.Label();
+            this.labelHotkeys = new System.Windows.Forms.Label();
             this.UpdateDisplay = new System.Windows.Forms.Timer(this.components);
             this.buttonOptions = new System.Windows.Forms.Button();
             this.buttonStart = new System.Windows.Forms.Button();
@@ -85,7 +85,7 @@
             this.tableLayoutPanelDisplay.Controls.Add(this.labelKeypressesDesc, 0, 0);
             this.tableLayoutPanelDisplay.Controls.Add(this.labelKPMDesc, 0, 2);
             this.tableLayoutPanelDisplay.Controls.Add(this.labelTimeDesc, 0, 1);
-            this.tableLayoutPanelDisplay.Location = new System.Drawing.Point(12, 25);
+            this.tableLayoutPanelDisplay.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanelDisplay.Name = "tableLayoutPanelDisplay";
             this.tableLayoutPanelDisplay.RowCount = 3;
             this.tableLayoutPanelDisplay.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -93,24 +93,6 @@
             this.tableLayoutPanelDisplay.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelDisplay.Size = new System.Drawing.Size(299, 70);
             this.tableLayoutPanelDisplay.TabIndex = 3;
-            // 
-            // labelKeypressesVal
-            // 
-            this.labelKeypressesVal.AutoSize = true;
-            this.labelKeypressesVal.Location = new System.Drawing.Point(152, 0);
-            this.labelKeypressesVal.Name = "labelKeypressesVal";
-            this.labelKeypressesVal.Size = new System.Drawing.Size(13, 13);
-            this.labelKeypressesVal.TabIndex = 3;
-            this.labelKeypressesVal.Text = "0";
-            // 
-            // labelTimeVal
-            // 
-            this.labelTimeVal.AutoSize = true;
-            this.labelTimeVal.Location = new System.Drawing.Point(152, 13);
-            this.labelTimeVal.Name = "labelTimeVal";
-            this.labelTimeVal.Size = new System.Drawing.Size(13, 13);
-            this.labelTimeVal.TabIndex = 4;
-            this.labelTimeVal.Text = "0";
             // 
             // labelKPMVal
             // 
@@ -122,14 +104,32 @@
             this.labelKPMVal.TabIndex = 5;
             this.labelKPMVal.Text = "0";
             // 
-            // labelDesc
+            // labelTimeVal
             // 
-            this.labelDesc.AutoSize = true;
-            this.labelDesc.Location = new System.Drawing.Point(15, 9);
-            this.labelDesc.Name = "labelDesc";
-            this.labelDesc.Size = new System.Drawing.Size(139, 13);
-            this.labelDesc.TabIndex = 6;
-            this.labelDesc.Text = "Press F5 to start, F6 to stop.";
+            this.labelTimeVal.AutoSize = true;
+            this.labelTimeVal.Location = new System.Drawing.Point(152, 13);
+            this.labelTimeVal.Name = "labelTimeVal";
+            this.labelTimeVal.Size = new System.Drawing.Size(13, 13);
+            this.labelTimeVal.TabIndex = 4;
+            this.labelTimeVal.Text = "0";
+            // 
+            // labelKeypressesVal
+            // 
+            this.labelKeypressesVal.AutoSize = true;
+            this.labelKeypressesVal.Location = new System.Drawing.Point(152, 0);
+            this.labelKeypressesVal.Name = "labelKeypressesVal";
+            this.labelKeypressesVal.Size = new System.Drawing.Size(13, 13);
+            this.labelKeypressesVal.TabIndex = 3;
+            this.labelKeypressesVal.Text = "0";
+            // 
+            // labelHotkeys
+            // 
+            this.labelHotkeys.AutoSize = true;
+            this.labelHotkeys.Location = new System.Drawing.Point(152, 96);
+            this.labelHotkeys.Name = "labelHotkeys";
+            this.labelHotkeys.Size = new System.Drawing.Size(139, 13);
+            this.labelHotkeys.TabIndex = 6;
+            this.labelHotkeys.Text = "Press F5 to start, F6 to stop.";
             // 
             // UpdateDisplay
             // 
@@ -179,7 +179,7 @@
             this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.buttonOptions);
             this.Controls.Add(this.tableLayoutPanelDisplay);
-            this.Controls.Add(this.labelDesc);
+            this.Controls.Add(this.labelHotkeys);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.Text = "KeyPressCounter";
@@ -201,7 +201,7 @@
         private System.Windows.Forms.Label labelKPMVal;
         private System.Windows.Forms.Label labelTimeVal;
         private System.Windows.Forms.Label labelKeypressesVal;
-        private System.Windows.Forms.Label labelDesc;
+        private System.Windows.Forms.Label labelHotkeys;
         private System.Windows.Forms.Timer UpdateDisplay;
         private System.Windows.Forms.Button buttonOptions;
         private System.Windows.Forms.Button buttonStart;

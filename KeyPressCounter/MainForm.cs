@@ -74,7 +74,9 @@ namespace KeyPressCounter
 
         private void LogKeypress()
         {
-            keypressLog.Add(DateTime.Now);
+            if (options.LoggingMode == LoggingModes.Always ||
+                (options.LoggingMode == LoggingModes.OnlyWhenStarted && timeCounter.IsRunning))
+                keypressLog.Add(DateTime.Now);
         }
 
         void logTimer_Tick(object sender, EventArgs e)

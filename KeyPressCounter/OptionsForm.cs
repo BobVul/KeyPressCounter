@@ -33,6 +33,20 @@ namespace KeyPressCounter
                     break;
                 case WindowModes.AlwaysOnTop:
                     radioButtonWMAlwaysOnTop.Checked = true;
+                    this.TopMost = true;
+                    break;
+            }
+
+            switch (parentOptions.LoggingMode)
+            {
+                case LoggingModes.Off:
+                    radioButtonLMOff.Checked = true;
+                    break;
+                case LoggingModes.OnlyWhenStarted:
+                    radioButtonLMWhenStarted.Checked = true;
+                    break;
+                case LoggingModes.Always:
+                    radioButtonLMAlways.Checked = true;
                     break;
             }
 
@@ -57,6 +71,13 @@ namespace KeyPressCounter
                 parentOptions.WindowMode = WindowModes.Minimized;
             else if (radioButtonWMAlwaysOnTop.Checked)
                 parentOptions.WindowMode = WindowModes.AlwaysOnTop;
+
+            if (radioButtonLMOff.Checked)
+                parentOptions.LoggingMode = LoggingModes.Off;
+            else if (radioButtonLMWhenStarted.Checked)
+                parentOptions.LoggingMode = LoggingModes.OnlyWhenStarted;
+            else if (radioButtonLMAlways.Checked)
+                parentOptions.LoggingMode = LoggingModes.Always;
 
             parentOptions.HotkeysEnabled = checkBoxEnableHotkey.Checked;
         }

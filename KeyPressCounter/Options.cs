@@ -10,5 +10,6 @@ namespace KeyPressCounter
     {
         public WindowModes WindowMode { get; set; }
         public bool HotkeysEnabled { get; set; }
+        public LoggingModes LoggingMode { get; set; }
     }
 }

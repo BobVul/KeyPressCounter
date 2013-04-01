@@ -52,6 +52,7 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoggingModes.cs" />
     <Compile Include="InterceptKeys.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

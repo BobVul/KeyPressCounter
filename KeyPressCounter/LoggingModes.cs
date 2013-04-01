@@ -5,10 +5,10 @@ using System.Text;
 
 namespace KeyPressCounter
 {
-    public enum LoggingModes
+    public enum WindowModes
     {
-        Off,
-        OnlyWhenStarted,
-        Always
+        None,
+        Minimized,
+        AlwaysOnTop
     }
 }

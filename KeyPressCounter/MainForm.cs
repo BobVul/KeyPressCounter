@@ -17,9 +17,9 @@ namespace KeyPressCounter
         const string optionsFile = "KeyPressCounter.options.xml";
         const string logFile = "KeyPressCounter.log.csv";
         Options options;
-        InterceptKeys KeyboardHook = new InterceptKeys();
-        Stopwatch TimeCounter = new Stopwatch();
-        int KeypressCounter = new Int32();
+        InterceptKeys keyboardHook = new InterceptKeys();
+        Stopwatch timeCounter = new Stopwatch();
+        int keypressCounter = new Int32();
         List<DateTime> keypressLog = new List<DateTime>();
 
 
@@ -38,13 +38,13 @@ namespace KeyPressCounter
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            KeyboardHook.KeyUp += new KeyEventHandler(KeyboardHook_KeyUp);
-            KeyboardHook.CreateHook();
+            keyboardHook.KeyUp += new KeyEventHandler(KeyboardHook_KeyUp);
+            keyboardHook.CreateHook();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            KeyboardHook.Dispose();
+            keyboardHook.Dispose();
         }
 
         void KeyboardHook_KeyUp(object sender, KeyEventArgs e)
@@ -93,8 +93,8 @@ namespace KeyPressCounter
         {
             if (options.WindowMode == WindowModes.Minimized)
                 this.WindowState = FormWindowState.Minimized;
-            TimeCounter.Restart();
-            KeypressCounter = new Int32();
+            timeCounter.Restart();
+            keypressCounter = new Int32();
         }
 
         private void StopCount()
@@ -102,22 +102,22 @@ namespace KeyPressCounter
             if (options.WindowMode == WindowModes.Minimized)
                 this.WindowState = FormWindowState.Normal;
             this.BringToFront();
-            TimeCounter.Stop();
+            timeCounter.Stop();
         }
 
         private void IncrementCount()
         {
-            if (!TimeCounter.IsRunning)
+            if (!timeCounter.IsRunning)
                 return;
 
-            KeypressCounter++;
+            keypressCounter++;
         }
 
         private void UpdateDisplay_Tick(object sender, EventArgs e)
         {
-            labelKeypressesVal.Text = KeypressCounter.ToString();
-            labelTimeVal.Text = TimeCounter.Elapsed.ToString("d'.'hh':'mm':'ss'.'ff");
-            labelKPMVal.Text = (KeypressCounter / TimeCounter.Elapsed.TotalMinutes).ToString("0.00");
+            labelKeypressesVal.Text = keypressCounter.ToString();
+            labelTimeVal.Text = timeCounter.Elapsed.ToString("d'.'hh':'mm':'ss'.'ff");
+            labelKPMVal.Text = (keypressCounter / timeCounter.Elapsed.TotalMinutes).ToString("0.00");
         }
 
         private void buttonOptions_Click(object sender, EventArgs e)

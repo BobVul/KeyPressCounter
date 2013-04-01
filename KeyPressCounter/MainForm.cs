@@ -7,21 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace KeyPressCounter
 {
     public partial class MainForm : Form
     {
+        const string optionsFile = "KeyPressCounter.options.xml";
+        Options options;
         InterceptKeys KeyboardHook = new InterceptKeys();
         Stopwatch TimeCounter = new Stopwatch();
         int KeypressCounter = new Int32();
-        Options options = new Options();
 
 
         public MainForm()
         {
             InitializeComponent();
 
+            LoadOptions();
             ApplyOptions();
         }
 
@@ -96,6 +100,7 @@ namespace KeyPressCounter
             {
                 if (optionsForm.ShowDialog() == DialogResult.OK)
                 {
+                    SaveOptions();
                     ApplyOptions();
                 }
             }
@@ -130,6 +135,31 @@ namespace KeyPressCounter
         private void buttonStop_Click(object sender, EventArgs e)
         {
             StopCount();
+        }
+
+        private void SaveOptions()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Options));
+            using (StreamWriter writer = new StreamWriter(optionsFile))
+            {
+                serializer.Serialize(writer, options);
+            }
+        }
+
+        private void LoadOptions()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Options));
+            try
+            {
+                using (StreamReader reader = new StreamReader(optionsFile))
+                {
+                    options = (Options)serializer.Deserialize(reader);
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                options = new Options();
+            }
         }
     }
 }

@@ -15,10 +15,12 @@ namespace KeyPressCounter
     public partial class MainForm : Form
     {
         const string optionsFile = "KeyPressCounter.options.xml";
+        const string logFile = "KeyPressCounter.log.csv";
         Options options;
         InterceptKeys KeyboardHook = new InterceptKeys();
         Stopwatch TimeCounter = new Stopwatch();
         int KeypressCounter = new Int32();
+        List<DateTime> keypressLog = new List<DateTime>();
 
 
         public MainForm()
@@ -27,6 +29,11 @@ namespace KeyPressCounter
 
             LoadOptions();
             ApplyOptions();
+
+            Timer logTimer = new Timer();
+            logTimer.Interval = (int)TimeSpan.FromMinutes(1).TotalMilliseconds;
+            logTimer.Tick += new EventHandler(logTimer_Tick);
+            logTimer.Enabled = true;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -60,6 +67,25 @@ namespace KeyPressCounter
             else
             {
                 IncrementCount();
+            }
+
+            LogKeypress();
+        }
+
+        private void LogKeypress()
+        {
+            keypressLog.Add(DateTime.Now);
+        }
+
+        void logTimer_Tick(object sender, EventArgs e)
+        {
+            using (StreamWriter writer = new StreamWriter(logFile, true))
+            {
+                foreach (DateTime item in keypressLog)
+                {
+                    writer.WriteLine(item.ToString("O"));
+                }
+                keypressLog.Clear();
             }
         }
 

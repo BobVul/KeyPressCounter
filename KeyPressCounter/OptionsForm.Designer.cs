@@ -37,6 +37,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonDiscard = new System.Windows.Forms.Button();
+            this.buttonAbout = new System.Windows.Forms.Button();
             this.tableLayoutPanelWindowMode.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -149,12 +150,24 @@
             this.buttonDiscard.UseVisualStyleBackColor = true;
             this.buttonDiscard.Click += new System.EventHandler(this.buttonDiscard_Click);
             // 
+            // buttonAbout
+            // 
+            this.buttonAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonAbout.Location = new System.Drawing.Point(12, 134);
+            this.buttonAbout.Name = "buttonAbout";
+            this.buttonAbout.Size = new System.Drawing.Size(75, 23);
+            this.buttonAbout.TabIndex = 14;
+            this.buttonAbout.Text = "About";
+            this.buttonAbout.UseVisualStyleBackColor = true;
+            this.buttonAbout.Click += new System.EventHandler(this.buttonAbout_Click);
+            // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonDiscard;
             this.ClientSize = new System.Drawing.Size(356, 169);
+            this.Controls.Add(this.buttonAbout);
             this.Controls.Add(this.buttonDiscard);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -182,5 +195,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonDiscard;
+        private System.Windows.Forms.Button buttonAbout;
     }
 }

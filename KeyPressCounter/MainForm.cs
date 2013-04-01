@@ -38,17 +38,24 @@ namespace KeyPressCounter
 
         void KeyboardHook_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
+            if (options.HotkeysEnabled)
             {
-                case Keys.F5:
-                    StartCount();
-                    break;
-                case Keys.F6:
-                    StopCount();
-                    break;
-                default:
-                    IncrementCount();
-                    break;
+                switch (e.KeyCode)
+                {
+                    case Keys.F5:
+                        StartCount();
+                        break;
+                    case Keys.F6:
+                        StopCount();
+                        break;
+                    default:
+                        IncrementCount();
+                        break;
+                }
+            }
+            else
+            {
+                IncrementCount();
             }
         }
 
@@ -83,14 +90,6 @@ namespace KeyPressCounter
             labelKPMVal.Text = (KeypressCounter / TimeCounter.Elapsed.TotalMinutes).ToString("0.00");
         }
 
-        private void buttonAbout_Click(object sender, EventArgs e)
-        {
-            using (AboutBox about = new AboutBox())
-            {
-                about.ShowDialog();
-            }
-        }
-
         private void buttonOptions_Click(object sender, EventArgs e)
         {
             using (OptionsForm optionsForm = new OptionsForm(options))
@@ -121,6 +120,16 @@ namespace KeyPressCounter
                 this.labelDesc.Visible = true;
             else
                 this.labelDesc.Visible = false;
+        }
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+            StartCount();
+        }
+
+        private void buttonStop_Click(object sender, EventArgs e)
+        {
+            StopCount();
         }
     }
 }

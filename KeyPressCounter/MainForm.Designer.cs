@@ -38,8 +38,9 @@
             this.labelKPMVal = new System.Windows.Forms.Label();
             this.labelDesc = new System.Windows.Forms.Label();
             this.UpdateDisplay = new System.Windows.Forms.Timer(this.components);
-            this.buttonAbout = new System.Windows.Forms.Button();
             this.buttonOptions = new System.Windows.Forms.Button();
+            this.buttonStart = new System.Windows.Forms.Button();
+            this.buttonStop = new System.Windows.Forms.Button();
             this.tableLayoutPanelDisplay.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,13 +91,13 @@
             this.tableLayoutPanelDisplay.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelDisplay.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelDisplay.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelDisplay.Size = new System.Drawing.Size(260, 70);
+            this.tableLayoutPanelDisplay.Size = new System.Drawing.Size(299, 70);
             this.tableLayoutPanelDisplay.TabIndex = 3;
             // 
             // labelKeypressesVal
             // 
             this.labelKeypressesVal.AutoSize = true;
-            this.labelKeypressesVal.Location = new System.Drawing.Point(133, 0);
+            this.labelKeypressesVal.Location = new System.Drawing.Point(152, 0);
             this.labelKeypressesVal.Name = "labelKeypressesVal";
             this.labelKeypressesVal.Size = new System.Drawing.Size(13, 13);
             this.labelKeypressesVal.TabIndex = 3;
@@ -105,7 +106,7 @@
             // labelTimeVal
             // 
             this.labelTimeVal.AutoSize = true;
-            this.labelTimeVal.Location = new System.Drawing.Point(133, 13);
+            this.labelTimeVal.Location = new System.Drawing.Point(152, 13);
             this.labelTimeVal.Name = "labelTimeVal";
             this.labelTimeVal.Size = new System.Drawing.Size(13, 13);
             this.labelTimeVal.TabIndex = 4;
@@ -115,7 +116,7 @@
             // 
             this.labelKPMVal.AutoSize = true;
             this.labelKPMVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKPMVal.Location = new System.Drawing.Point(133, 26);
+            this.labelKPMVal.Location = new System.Drawing.Point(152, 26);
             this.labelKPMVal.Name = "labelKPMVal";
             this.labelKPMVal.Size = new System.Drawing.Size(24, 25);
             this.labelKPMVal.TabIndex = 5;
@@ -136,21 +137,10 @@
             this.UpdateDisplay.Interval = 50;
             this.UpdateDisplay.Tick += new System.EventHandler(this.UpdateDisplay_Tick);
             // 
-            // buttonAbout
-            // 
-            this.buttonAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonAbout.Location = new System.Drawing.Point(12, 116);
-            this.buttonAbout.Name = "buttonAbout";
-            this.buttonAbout.Size = new System.Drawing.Size(75, 23);
-            this.buttonAbout.TabIndex = 7;
-            this.buttonAbout.Text = "About";
-            this.buttonAbout.UseVisualStyleBackColor = true;
-            this.buttonAbout.Click += new System.EventHandler(this.buttonAbout_Click);
-            // 
             // buttonOptions
             // 
             this.buttonOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonOptions.Location = new System.Drawing.Point(93, 116);
+            this.buttonOptions.Location = new System.Drawing.Point(12, 112);
             this.buttonOptions.Name = "buttonOptions";
             this.buttonOptions.Size = new System.Drawing.Size(75, 23);
             this.buttonOptions.TabIndex = 8;
@@ -158,13 +148,36 @@
             this.buttonOptions.UseVisualStyleBackColor = true;
             this.buttonOptions.Click += new System.EventHandler(this.buttonOptions_Click);
             // 
+            // buttonStart
+            // 
+            this.buttonStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonStart.Location = new System.Drawing.Point(155, 112);
+            this.buttonStart.Name = "buttonStart";
+            this.buttonStart.Size = new System.Drawing.Size(75, 23);
+            this.buttonStart.TabIndex = 9;
+            this.buttonStart.Text = "Start";
+            this.buttonStart.UseVisualStyleBackColor = true;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
+            // 
+            // buttonStop
+            // 
+            this.buttonStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonStop.Location = new System.Drawing.Point(236, 112);
+            this.buttonStop.Name = "buttonStop";
+            this.buttonStop.Size = new System.Drawing.Size(75, 23);
+            this.buttonStop.TabIndex = 10;
+            this.buttonStop.Text = "Stop";
+            this.buttonStop.UseVisualStyleBackColor = true;
+            this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 151);
+            this.ClientSize = new System.Drawing.Size(323, 147);
+            this.Controls.Add(this.buttonStop);
+            this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.buttonOptions);
-            this.Controls.Add(this.buttonAbout);
             this.Controls.Add(this.tableLayoutPanelDisplay);
             this.Controls.Add(this.labelDesc);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -190,8 +203,9 @@
         private System.Windows.Forms.Label labelKeypressesVal;
         private System.Windows.Forms.Label labelDesc;
         private System.Windows.Forms.Timer UpdateDisplay;
-        private System.Windows.Forms.Button buttonAbout;
         private System.Windows.Forms.Button buttonOptions;
+        private System.Windows.Forms.Button buttonStart;
+        private System.Windows.Forms.Button buttonStop;
     }
 }
 

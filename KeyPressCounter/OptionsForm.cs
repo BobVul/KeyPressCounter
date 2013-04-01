@@ -60,5 +60,13 @@ namespace KeyPressCounter
 
             parentOptions.HotkeysEnabled = checkBoxEnableHotkey.Checked;
         }
+
+        private void buttonAbout_Click(object sender, EventArgs e)
+        {
+            using (AboutBox about = new AboutBox())
+            {
+                about.ShowDialog();
+            }
+        }
     }
 }

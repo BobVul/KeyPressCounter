@@ -32,14 +32,15 @@
             this.labelKeypressesDesc = new System.Windows.Forms.Label();
             this.labelTimeDesc = new System.Windows.Forms.Label();
             this.labelKPMDesc = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanelDisplay = new System.Windows.Forms.TableLayoutPanel();
             this.labelKeypressesVal = new System.Windows.Forms.Label();
             this.labelTimeVal = new System.Windows.Forms.Label();
             this.labelKPMVal = new System.Windows.Forms.Label();
             this.labelDesc = new System.Windows.Forms.Label();
             this.UpdateDisplay = new System.Windows.Forms.Timer(this.components);
             this.buttonAbout = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.buttonOptions = new System.Windows.Forms.Button();
+            this.tableLayoutPanelDisplay.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelKeypressesDesc
@@ -70,25 +71,27 @@
             this.labelKPMDesc.TabIndex = 2;
             this.labelKPMDesc.Text = "KPM";
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanelDisplay
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.labelKPMVal, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.labelTimeVal, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.labelKeypressesVal, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.labelKeypressesDesc, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.labelKPMDesc, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.labelTimeDesc, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 25);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(260, 100);
-            this.tableLayoutPanel1.TabIndex = 3;
+            this.tableLayoutPanelDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelDisplay.ColumnCount = 2;
+            this.tableLayoutPanelDisplay.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelDisplay.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelDisplay.Controls.Add(this.labelKPMVal, 1, 2);
+            this.tableLayoutPanelDisplay.Controls.Add(this.labelTimeVal, 1, 1);
+            this.tableLayoutPanelDisplay.Controls.Add(this.labelKeypressesVal, 1, 0);
+            this.tableLayoutPanelDisplay.Controls.Add(this.labelKeypressesDesc, 0, 0);
+            this.tableLayoutPanelDisplay.Controls.Add(this.labelKPMDesc, 0, 2);
+            this.tableLayoutPanelDisplay.Controls.Add(this.labelTimeDesc, 0, 1);
+            this.tableLayoutPanelDisplay.Location = new System.Drawing.Point(12, 25);
+            this.tableLayoutPanelDisplay.Name = "tableLayoutPanelDisplay";
+            this.tableLayoutPanelDisplay.RowCount = 3;
+            this.tableLayoutPanelDisplay.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelDisplay.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelDisplay.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelDisplay.Size = new System.Drawing.Size(260, 70);
+            this.tableLayoutPanelDisplay.TabIndex = 3;
             // 
             // labelKeypressesVal
             // 
@@ -135,7 +138,8 @@
             // 
             // buttonAbout
             // 
-            this.buttonAbout.Location = new System.Drawing.Point(12, 169);
+            this.buttonAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonAbout.Location = new System.Drawing.Point(12, 116);
             this.buttonAbout.Name = "buttonAbout";
             this.buttonAbout.Size = new System.Drawing.Size(75, 23);
             this.buttonAbout.TabIndex = 7;
@@ -143,21 +147,33 @@
             this.buttonAbout.UseVisualStyleBackColor = true;
             this.buttonAbout.Click += new System.EventHandler(this.buttonAbout_Click);
             // 
+            // buttonOptions
+            // 
+            this.buttonOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonOptions.Location = new System.Drawing.Point(93, 116);
+            this.buttonOptions.Name = "buttonOptions";
+            this.buttonOptions.Size = new System.Drawing.Size(75, 23);
+            this.buttonOptions.TabIndex = 8;
+            this.buttonOptions.Text = "Options";
+            this.buttonOptions.UseVisualStyleBackColor = true;
+            this.buttonOptions.Click += new System.EventHandler(this.buttonOptions_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 204);
+            this.ClientSize = new System.Drawing.Size(284, 151);
+            this.Controls.Add(this.buttonOptions);
             this.Controls.Add(this.buttonAbout);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanelDisplay);
             this.Controls.Add(this.labelDesc);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.Text = "KeyPressCounter";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanelDisplay.ResumeLayout(false);
+            this.tableLayoutPanelDisplay.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,13 +184,14 @@
         private System.Windows.Forms.Label labelKeypressesDesc;
         private System.Windows.Forms.Label labelTimeDesc;
         private System.Windows.Forms.Label labelKPMDesc;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelDisplay;
         private System.Windows.Forms.Label labelKPMVal;
         private System.Windows.Forms.Label labelTimeVal;
         private System.Windows.Forms.Label labelKeypressesVal;
         private System.Windows.Forms.Label labelDesc;
         private System.Windows.Forms.Timer UpdateDisplay;
         private System.Windows.Forms.Button buttonAbout;
+        private System.Windows.Forms.Button buttonOptions;
     }
 }
 

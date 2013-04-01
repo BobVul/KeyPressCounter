@@ -15,10 +15,14 @@ namespace KeyPressCounter
         InterceptKeys KeyboardHook = new InterceptKeys();
         Stopwatch TimeCounter = new Stopwatch();
         int KeypressCounter = new Int32();
+        Options options = new Options();
+
 
         public MainForm()
         {
             InitializeComponent();
+
+            ApplyOptions();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -50,14 +54,16 @@ namespace KeyPressCounter
 
         private void StartCount()
         {
-            this.WindowState = FormWindowState.Minimized;
+            if (options.WindowMode == WindowModes.Minimized)
+                this.WindowState = FormWindowState.Minimized;
             TimeCounter.Restart();
             KeypressCounter = new Int32();
         }
 
         private void StopCount()
         {
-            this.WindowState = FormWindowState.Normal;
+            if (options.WindowMode == WindowModes.Minimized)
+                this.WindowState = FormWindowState.Normal;
             this.BringToFront();
             TimeCounter.Stop();
         }
@@ -83,6 +89,38 @@ namespace KeyPressCounter
             {
                 about.ShowDialog();
             }
+        }
+
+        private void buttonOptions_Click(object sender, EventArgs e)
+        {
+            using (OptionsForm optionsForm = new OptionsForm(options))
+            {
+                if (optionsForm.ShowDialog() == DialogResult.OK)
+                {
+                    ApplyOptions();
+                }
+            }
+        }
+
+        private void ApplyOptions()
+        {
+            switch (options.WindowMode)
+            {
+                case WindowModes.None:
+                    this.TopMost = false;
+                    break;
+                case WindowModes.Minimized:
+                    this.TopMost = false;
+                    break;
+                case WindowModes.AlwaysOnTop:
+                    this.TopMost = true;
+                    break;
+            }
+
+            if (options.HotkeysEnabled)
+                this.labelDesc.Visible = true;
+            else
+                this.labelDesc.Visible = false;
         }
     }
 }

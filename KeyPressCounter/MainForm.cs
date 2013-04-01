@@ -73,8 +73,8 @@ namespace KeyPressCounter
         private void UpdateDisplay_Tick(object sender, EventArgs e)
         {
             labelKeypressesVal.Text = KeypressCounter.ToString();
-            labelTimeVal.Text = TimeCounter.Elapsed.ToString();
-            labelKPMVal.Text = (KeypressCounter / TimeCounter.Elapsed.TotalMinutes).ToString();
+            labelTimeVal.Text = TimeCounter.Elapsed.ToString("d'.'hh':'mm':'ss'.'ff");
+            labelKPMVal.Text = (KeypressCounter / TimeCounter.Elapsed.TotalMinutes).ToString("0.00");
         }
 
         private void buttonAbout_Click(object sender, EventArgs e)
